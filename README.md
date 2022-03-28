@@ -1,7 +1,7 @@
 
 # OndeTemPraVer
 
-**Filipe Diana de Avelar**
+**Filipe Avelar**
 
 O objetivo é a criação de um aplicativo para localização em quais serviços de streaming
 estão disponíveis séries ou filmes para a região do usuário, e demais funcionalidades como
