@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #4943F7">
+
+<head>   
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Onde Tem Pra Ver | Procurar</title>    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English"> 
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  
+    <link rel="icon"
+        href="../images/movie-roll.jpg">
+</head>
+
+<body>    
+    <div class="top-bar">
+        <div class="topbar-wrapper">
+            <div class="top-left">
+                <a href="./dashboard.html" style="text-decoration: none;">
+                    <img src="../images/movie-roll.jpg" class="top-avatar" id="nav_dp">
+                    <span class="logo"> Onde Tem Pra Ver</span>
+                </a>
+            </div>
+
+            <div class="top-right">             
+                <a class="nav-link hiddenOnMobile" href="./dashboard.html">
+                    <span class="material-icons icon">home</span>
+                    Home
+                </a>
+              
+                <a class="nav-link hiddenOnMobile">
+                    <span class="material-icons icon">apps</span>
+                    Minhas Coleções
+                </a>
+
+                <div class="profile-dropdown-wrapper">            
+                    <div id="profile-dropdown">
+                        <img src="../images/no_user.png" class="top-avatar" id="nav_dp">
+                        <span class="no-overflow">
+                            <span class="material-icons icon" id="dropdown-menu">menue</span>
+                        </span>
+                    </div>
+                  
+                    <div class="dropdown-content" id="myDropdown">                       
+                        <h3 id='user_name'></h3>                    
+                        <a href="./dashboard.html" class="showOnMobile">
+                            <span class="material-icons icon">home</span>
+                            Home
+                        </a>    
+                        <a href="#" id="update-profile-btn">
+                            <span class="material-icons icon">manage_accounts</span>
+                            Atualizar Perfil
+                        </a>                     
+                        <a href="#" id="check-notificatios-btn">
+                            <span class="material-icons icon">notifications</span>
+                            
+                        </a>                      
+                        <a class="showOnMobile">
+                            <span class="material-icons icon">apps</span>
+                            Minhas Coleções
+                        </a>
+                      
+                        <button class="logout-login-button" type="submit" id="logout_btn">
+                            <span class="btn_text">Deslogar</span>
+                            <span class="material-icons icon logout-icon">logout</span>
+                           
+                            <div class="loader hidden">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                    height="15px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+                                    xml:space="preserve">
+
+                                    <path fill="#000"
+                                        d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate"
+                                            from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="movies-search-wrapper">
+        <div class="movies-search-container">
+            <div class="create-new-collection-continer">
+                <div>
+                    <h2 class="create-new-collection-header">Procurar Filmes & Séries</h1>
+                </div>
+            </div>
+            <div class="movies-search-search">
+                <form class="search-form">
+                    <input class="search-input" type="text" placeholder="Procurar por Filmes ou Séries...">
+                    <button class="search-button">
+                        <Span class="search-btn-text">Procurar</Span>
+                        <div class="loader hidden search-loader">
+                            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px"
+                                viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+
+                                <path fill="#000"
+                                    d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                                    <animateTransform attributeType="xml" attributeName="transform" type="rotate"
+                                        from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                </path>
+                            </svg>
+                        </div>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="movies-search-results" id="movies">
+        </div>
+    </section>
+
+    <div class="modal">
+        <form class="profile-update-form">
+            <div class="profile-update-header-wrapper">
+                <h1>Editar Configurações Pessoais</h1>
+                <span class="material-icons icon" id="close-modal">close</span>
+            </div>
+
+            <label for="profile_email">Email</label>
+            <div class="input-wrapper">
+                <input class="disabled" type="email" name="email" id="profile_email" placeholder=" " readonly>
+                <span class="material-icons verified">verified</span>
+                <a href="#" class="verify-link" id="verify-email-button">Verify</a>
+            </div>
+
+            <label for="profile_name">Novo Username</label>
+            <div class="input-wrapper">
+                <input type="text" name="user_name" id="profile_name">
+            </div>
+
+            <label for="user_bio">Biografia</label>
+            <div class="input-wrapper">
+                <input type="textarea" name="user_bio" id="user_bio">
+            </div>
+
+            <label for="user_dp">Foto</label>
+            <div class="input-wrapper">
+                <input type="file" name="user_dp" id="user_dp" onchange="chooseFile(event)">
+            </div>
+
+            <button type="submit" id="update">
+                <span class="update_btn_text">Update</span>
+                <div class="update_loader hidden">
+                    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px"
+                        viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+
+                        <path fill="#000"
+                            d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                            <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                                to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+            </button>
+        </form>
+    </div>
+
+    <div class="collections-modal hidden">
+        <div class="collections-modal-wrapper">       
+
+            <div class="collections-modal-content-wrapper">
+                <div class="collections-modal-header-wrapper">
+                    <h1 class="collections-modal-header"></h1>
+                    <span class="material-icons icon" id="close-collections-modal"
+                        style="padding-left: 50px; padding-right: 20px;">close</span>
+                </div>
+
+                <div class="collections-modal-collections">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collections-modal hidden">
+        <div class="collections-modal-wrapper">
+            <div class="current-movie-wrapper">
+                <div class="profile-image">
+                    <img src="../images/no_user.png" alt="Default Profile image" style="height: 40px; width: 40px;">
+                    <h3 class="user-name">Usuário                        
+                    </h3>
+                </div>
+            </div>
+
+            <div class="collections-modal-content-wrapper">
+                <div class="collections-modal-header-wrapper">
+                    <h1 class="collections-modal-header">
+                        Editar Seu Perfil
+                    </h1>
+                    <span class="material-icons icon" id="close-collections-modal"
+                        style="padding-left: 50px;">close</span>
+                </div>
+
+                <div class="collections-modal-collections">
+                    <form class="profile-update-form no-style-form">
+                        <label for="profile_email">Email</label>
+                        <div class="input-wrapper">
+                            <input class="disabled" type="email" name="email" id="profile_email" placeholder=" "
+                                readonly>
+                            <span class="material-icons verified">verified</span>
+                            <a href="#" class="verify-link" id="verify-email-button">Verify</a>
+                        </div>
+
+                        <label for="profile_name">Novo Username</label>
+                        <div class="input-wrapper">
+                            <input type="text" name="user_name" id="profile_name">
+                        </div>
+
+                        <label for="user_bio">Biografia</label>
+                        <div class="input-wrapper">
+                            <input type="textarea" name="user_bio" id="user_bio">
+                        </div>
+
+                        <label for="user_dp">Foto</label>
+                        <div class="input-wrapper">
+                            <input type="file" name="user_dp" id="user_dp" onchange="chooseFile(event)">
+                        </div>
+
+                        <button type="submit" id="update">
+                            <span class="update_btn_text">Atualizar</span>
+                            <div class="update_loader hidden">
+                                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px"
+                                    height="15px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+                                    xml:space="preserve">
+
+                                    <path fill="#000"
+                                        d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                                        <animateTransform attributeType="xml" attributeName="transform" type="rotate"
+                                            from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                                    </path>
+                                </svg>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDmP3ZCKbN-ckI5QO3sUSnKT_8pUX1xvA0",
+            authDomain: "pwa-ondetempraver.firebaseapp.com",
+            projectId: "pwa-ondetempraver",
+            storageBucket: "pwa-ondetempraver.appspot.com",
+            messagingSenderId: "67045925559",
+            appId: "1:67045925559:web:efd20dfa82faa11442e332",
+            measurementId: "G-J49D9CKN53"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    </script>
+
+    <!-- Scripts -->
+    <script src="../js/modules/fetchMovies.js" type="module"></script>
+    <script src="../js/dashboard.js" type="module"></script>
+
+    <!-- Axios.js -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

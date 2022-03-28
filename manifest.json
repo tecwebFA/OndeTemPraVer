@@ -1,0 +1,31 @@
+{
+    "name": "OndeTemPraVer",
+    "short_name": "OndeTemPraVer",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#4943F7", 
+    "orientation": "any",
+    "icons": [
+      {
+        "src": "/images/no_user.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/images/movie-roll.jpg",
+        "type": "image/jpg",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/images/icons/house-home.jpg",
+        "type": "image/jpg",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/images/icons/squares.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      }      
+    ]
+  }
+  

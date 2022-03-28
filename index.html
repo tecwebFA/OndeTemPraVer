@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Onde Tem Pra Ver | Logar</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="icon"
+         href="../images/movie-roll.jpg">
+</head>
+
+<body>
+    <form>
+        <h1>Logar</h1>        
+
+        <label for="user_email">Email</label>
+        <input type="text" name="email" id="user_email">
+
+        <label for="user_pass">Senha</label>
+        <input type="password" name="Password" id="user_pass">
+
+        <button type="submit" id="login_btn">
+            <span class="btn_text">Logar</span>
+            <div class="loader hidden">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px"
+                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+
+                    <path fill="#000"
+                        d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+        </button>
+
+        </div>
+
+        <p>Não tem uma Conta? <a href="./pages/signup.html">Registrar</a></p>
+        <p><a href="./pages/forgotPassword.html">Esqueci Minha Senha</a></p>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDmP3ZCKbN-ckI5QO3sUSnKT_8pUX1xvA0",
+            authDomain: "pwa-ondetempraver.firebaseapp.com",
+            projectId: "pwa-ondetempraver",
+            storageBucket: "pwa-ondetempraver.appspot.com",
+            messagingSenderId: "67045925559",
+            appId: "1:67045925559:web:efd20dfa82faa11442e332",
+            measurementId: "G-J49D9CKN53"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+    </script>
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker
+                   .register('./js/serviceworker.js')
+                   .then(function() { console.log("Service Worker Registrado"); });
+        }
+        </script>
+    <script type="module" src="./js/login.js"></script>
+</body>
+
+</html>
